@@ -8,9 +8,7 @@
   "scripts": {
     "open": "babel-node tools/server.js",
     "build": "webpack",
-    "lint": "node_modules/.bin/eslint webpack.config.* src tools",
-    "lint-fix": "node_modules/.bin/eslint --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "node_modules/.bin/eslint webpack.config.* src tools"
   },
   "devDependencies": {
     "@babel/core": "^7.1.2",
