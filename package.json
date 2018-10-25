@@ -8,6 +8,8 @@
   "scripts": {
     "open": "babel-node tools/server.js",
     "build": "webpack",
+    "lint": "node_modules/.bin/eslint webpack.config.* src tools",
+    "lint-fix": "node_modules/.bin/eslint --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
@@ -16,8 +18,14 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0",
     "express": "^4.16.4",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",

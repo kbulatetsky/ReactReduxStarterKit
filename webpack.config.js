@@ -7,25 +7,25 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: [
     'webpack-hot-middleware/client?reload=true',
-    path.resolve(__dirname, 'src/index')
+    path.resolve(__dirname, 'src/index'),
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js'
+    filename: 'main.js',
   },
   module: {
     rules: [
       { test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel-loader'] },
       { test: /(\.css)$/, loaders: ['style-loader', 'css-loader'] },
-      { test: /\.html$/, loaders: ['html-loader'] }
-    ]
+      { test: /\.html$/, loaders: ['html-loader'] },
+    ],
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
       inject: false,
-      template: "./src/index.html",
-      filename: "./index.html"
-    })
-  ]
+      template: './src/index.html',
+      filename: './index.html',
+    }),
+  ],
 };

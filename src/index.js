@@ -1,5 +1,7 @@
-import React from "react";
-import ReactDOM from "react-dom";
+/* global document */
+
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import { Router } from 'react-router-dom';
 
@@ -12,11 +14,11 @@ import './styles/style.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
-    <Router history={history}>
-        <div>
-            <Header/>
-            {routes}
-        </div>
-    </Router>,
-    document.getElementById('app')
-  );
+  <Router history={history}>
+    <div>
+      <Header />
+      {routes}
+    </div>
+  </Router>,
+  document.getElementById('app'),
+);
