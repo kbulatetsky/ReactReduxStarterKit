@@ -1,11 +1,14 @@
+const webpack = require('webpack');
 const path = require('path');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: {
-     main: './src/index.js'
-  },
+  mode: 'development',
   devtool: 'inline-source-map',
+  entry: [
+    'webpack-hot-middleware/client?reload=true',
+    path.resolve(__dirname, 'src/index')
+  ],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js'
@@ -18,7 +21,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
+      inject: false,
       template: "./src/index.html",
       filename: "./index.html"
     })
