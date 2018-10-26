@@ -1,12 +1,7 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+/* eslint global-require: 0 */
 
-import rootReducer from './reducers';
-
-const configureStore = initialState => createStore(
-  rootReducer,
-  initialState,
-  applyMiddleware(thunk),
-);
-
-export default configureStore;
+if (process.env.NODE_ENV === 'production') {
+  module.exports = require('./configureStore.prod');
+} else {
+  module.exports = require('./configureStore.dev');
+}

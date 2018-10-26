@@ -6,7 +6,7 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
-import webpackConfig from '../webpack.config';
+import webpackConfig from '../webpack.config.dev';
 
 
 const port = 3000;
@@ -20,7 +20,7 @@ const hotMiddleware = webpackHotMiddleware(compiler);
 app.use(devMiddleware);
 app.use(hotMiddleware);
 
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../src/index.html'));
 });
 

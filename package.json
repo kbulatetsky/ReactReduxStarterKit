@@ -6,8 +6,9 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "open": "babel-node tools/server.js",
+    "open-dev": "babel-node tools/srcServer.js",
     "build": "webpack",
+    "open-prod": "babel-node tools/distServer.js",
     "lint": "node_modules/.bin/eslint webpack.config.* src tools"
   },
   "devDependencies": {
@@ -25,10 +26,12 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
     "express": "^4.16.4",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "open": "0.0.5",
     "path": "^0.12.7",
+    "redux-immutable-state-invariant": "^2.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.23.1",
     "webpack-cli": "^3.1.2",
