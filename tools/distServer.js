@@ -1,7 +1,7 @@
 import express from 'express';
-import path from 'path';
 import open from 'open';
 
+import * as serverCommon from './serverCommon';
 
 const port = 3000;
 const app = express();
@@ -9,7 +9,8 @@ const app = express();
 app.use(express.static('dist'));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/index.html'));
+  const componentString = serverCommon.getComponentString(req);
+  res.end(serverCommon.renderHTML(componentString));
 });
 
 app.listen(port, (err) => {

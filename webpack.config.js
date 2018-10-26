@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const GLOBALS = {
@@ -29,10 +28,5 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin(GLOBALS),
     new ExtractTextPlugin('styles.css'),
-    new HtmlWebPackPlugin({
-      inject: false,
-      template: './src/index.html',
-      filename: './index.html',
-    }),
   ],
 };

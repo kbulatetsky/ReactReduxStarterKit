@@ -1,5 +1,4 @@
 import express from 'express';
-import path from 'path';
 import open from 'open';
 
 import webpack from 'webpack';
@@ -7,7 +6,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 
 import webpackConfig from '../webpack.config.dev';
-
+import * as serverCommon from './serverCommon';
 
 const port = 3000;
 const app = express();
@@ -21,7 +20,8 @@ app.use(devMiddleware);
 app.use(hotMiddleware);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../src/index.html'));
+  const componentString = serverCommon.getComponentString(req);
+  res.end(serverCommon.renderHTML(componentString));
 });
 
 app.listen(port, (err) => {
