@@ -11,6 +11,7 @@ class Home extends Component {
 
     this.testAction1 = this.testAction1.bind(this);
     this.testAction2 = this.testAction2.bind(this);
+    this.testAction3Thunk = this.testAction3Thunk.bind(this);
   }
 
   testAction1() {
@@ -23,6 +24,11 @@ class Home extends Component {
     actions.testAction2();
   }
 
+  testAction3Thunk() {
+    const { actions } = this.props;
+    actions.testAction3Thunk();
+  }
+
   render() {
     const { header } = this.props;
 
@@ -32,6 +38,7 @@ class Home extends Component {
         <p>{header}</p>
         <input type="button" value="Test Action 1" onClick={this.testAction1} />
         <input type="button" value="Test Action 2" onClick={this.testAction2} />
+        <input type="button" value="Test Action 3 Thunk" onClick={this.testAction3Thunk} />
       </div>
     );
   }
