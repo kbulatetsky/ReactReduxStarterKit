@@ -13,7 +13,7 @@ export function testAction3() {
 }
 
 export function testAction3Thunk() {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(testAction3());
   };
 }
