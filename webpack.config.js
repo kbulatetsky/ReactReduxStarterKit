@@ -21,7 +21,9 @@ module.exports = {
   module: {
     rules: [
       { test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel-loader'] },
-      { test: /(\.css)$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) },
+      { test: /\.sass$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'sass-loader'] }) },
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract({ fallback: 'style-loader', use: ['css-loader', 'sass-loader'] }) },
       { test: /\.html$/, loaders: ['html-loader'] },
     ],
   },
